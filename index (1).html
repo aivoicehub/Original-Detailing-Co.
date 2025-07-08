@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iron Car Detailing - Premium Mobile Detailing Perth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'iron-red': '#D72638',
+                        'iron-black': '#000000',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .hero-overlay {
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .before-after-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .before-after-slider {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 50%;
+            overflow: hidden;
+            resize: horizontal;
+            cursor: ew-resize;
+            max-width: 100%;
+        }
+        .before-after-slider img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: auto;
+            max-width: none;
+        }
+        .before-after-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #D72638;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .testimonial-carousel {
+            scroll-snap-type: x mandatory;
+        }
+        .testimonial-slide {
+            scroll-snap-align: start;
+        }
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .feature-icon {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+            color: #D72638;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-100">
+    <!-- Offer Banner -->
+    <div class="bg-iron-red text-white py-2 px-4 text-center sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <span class="font-bold">🔥 New Client Offer: First 5 Bookings This Week Save 10%</span>
+            <a href="#contact" class="ml-4 bg-white text-iron-red px-4 py-1 rounded font-bold hover:bg-gray-100 transition">Claim Offer</a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-iron-black text-white py-4 sticky top-8 z-40">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://via.placeholder.com/150x50?text=Iron+Car+Detailing" alt="Iron Car Detailing Logo" class="h-10">
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#services" class="hover:text-iron-red transition">Services</a>
+                <a href="#gallery" class="hover:text-iron-red transition">Gallery</a>
+                <a href="#testimonials" class="hover:text-iron-red transition">Testimonials</a>
+                <a href="#contact" class="hover:text-iron-red transition">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-iron-black absolute w-full left-0 px-4 pb-4">
+            <a href="#services" class="block py-2 hover:text-iron-red transition">Services</a>
+            <a href="#gallery" class="block py-2 hover:text-iron-red transition">Gallery</a>
+            <a href="#testimonials" class="block py-2 hover:text-iron-red transition">Testimonials</a>
+            <a href="#contact" class="block py-2 hover:text-iron-red transition">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="hero-video" style="background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-position: center;"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Unleash Your Car's True Power</h1>
+            <p class="text-xl md:text-2xl text-white mb-8">Perth's Elite Car Detailing – At Your Doorstep</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-iron-red hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">Book a Detail</a>
+                <a href="#gallery" class="bg-white hover:bg-gray-100 text-iron-black font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">See Our Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Why We're the Detailers Perth Talks About</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card bg-gray-50 p-6 rounded-lg text-center hover:shadow-lg transition duration-300">
+                    <div class="feature-icon text-4xl mb-4 text-iron-black">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Precision Detailing</h3>
+                    <p class="text-gray-600">No shortcuts. No missed spots. Every job is treated like a show car.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card bg-gray-50 p-6 rounded-lg text-center hover:shadow-lg transition duration-300">
+                    <div class="feature-icon text-4xl mb-4 text-iron-black">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Mobile to You</h3>
+                    <p class="text-gray-600">We come to your home or office, fully equipped. Perth-wide.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card bg-gray-50 p-6 rounded-lg text-center hover:shadow-lg transition duration-300">
+                    <div class="feature-icon text-4xl mb-4 text-iron-black">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Ceramic Coating Pros</h3>
+                    <p class="text-gray-600">Long-lasting protection, showroom-level shine.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card bg-gray-50 p-6 rounded-lg text-center hover:shadow-lg transition duration-300">
+                    <div class="feature-icon text-4xl mb-4 text-iron-black">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">5-Star Results</h3>
+                    <p class="text-gray-600">Verified reviews. Consistent excellence. Zero compromise.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Our Most Popular Packages</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Package 1 -->
+                <div class="package-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="bg-iron-black text-white py-4 px-6">
+                        <h3 class="text-xl font-bold">Express Detail</h3>
+                        <p class="text-iron-red font-bold text-2xl">$149</p>
+                    </div>
+                    <div class="p-6">
+                        <ul class="mb-6 space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-iron-red mt-1 mr-2"></i>
+                                <span>Wash & vacuum</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-iron-red mt-1 mr-2"></i>
+                                <span>Dash wipedown</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-iron-red mt-1 mr-2"></i>
+                                <span>Wheels cleaned</span>
+                            </li>
+                        </ul>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-clock mr-2"></i>
+                            <span>Perfect for weekly maintenance</span>
+                        </div>
+                        <a href="#contact" class="block w-full bg-iron-red hover:bg-red-700 text-white text-center font-bold py-3 px-4 rounded transition">Book Now</a>
+                    </div>
+                </div>
+                
+                <!-- Package 2 -->
+                <div class="package-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300 transform scale-105 z-10 border-2 border-iron-red">
+                    <div class="bg-gradient-to-r from-iron-black to-iron-red text-white py-4 px-6">
+                        <h3 class="text-xl font-bold">Iron Signature Detail</h3>
+                        <p class="text-white font-bold text-2xl">$279</p>
+                    </div>
+                    <div class="p-6">
+                        <ul class="mb-6 space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-iron-red mt-1 mr-2"></i>
+                                <span>Full interior & exterior</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-iron-red mt-1 mr-2"></i>
+                                <span>Hand polish</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-iron-red mt-1 mr-2"></i>
+                                <span>Engine bay clean</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-iron-red mt-1 mr-2"></i>
+                                <span>Tyre shine</span>
+                            </li>
+                        </ul>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-crown mr-2"></i>
+                            <span>Our most booked service</span>
+                        </div>
+                        <a href="#contact" class="block w-full bg-iron-red hover:bg-red-700 text-white text-center font-bold py-3 px-4 rounded transition">Book Now</a>
+                    </div>
+                </div>
+                
+                <!-- Package 3 -->
+                <div class="package-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="bg-iron-black text-white py-4 px-6">
+                        <h3 class="text-xl font-bold">Ceramic Coating</h3>
+                        <p class="text-iron-red font-bold text-2xl">From $799</p>
+                    </div>
+                    <div class="p-6">
+                        <ul class="mb-6 space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-iron-red mt-1 mr-2"></i>
+                                <span>2–5 years of protection</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-iron-red mt-1 mr-2"></i>
+                                <span>Insane gloss finish</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-iron-red mt-1 mr-2"></i>
+                                <span>Hydrophobic effect</span>
+                            </li>
+                        </ul>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-gem mr-2"></i>
+                            <span>Free aftercare guide included</span>
+                        </div>
+                        <a href="#contact" class="block w-full bg-iron-red hover:bg-red-700 text-white text-center font-bold py-3 px-4 rounded transition">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Proof It Works</h2>
+            
+            <!-- Before/After Slider 1 -->
+            <div class="mb-12">
+                <h3 class="text-xl font-bold mb-4 text-center">Paint Correction</h3>
+                <div class="before-after-container relative h-96">
+                    <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" alt="After paint correction" class="w-full h-full object-cover">
+                    <div class="before-after-slider">
+                        <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80&blur=5" alt="Before paint correction" class="w-full h-full object-cover">
+                        <div class="before-after-handle"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Before/After Slider 2 -->
+            <div class="mb-12">
+                <h3 class="text-xl font-bold mb-4 text-center">Headlight Restoration</h3>
+                <div class="before-after-container relative h-96">
+                    <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" alt="After headlight restoration" class="w-full h-full object-cover">
+                    <div class="before-after-slider">
+                        <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80&blur=5&brightness=0.7" alt="Before headlight restoration" class="w-full h-full object-cover">
+                        <div class="before-after-handle"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Before/After Slider 3 -->
+            <div>
+                <h3 class="text-xl font-bold mb-4 text-center">Leather Reconditioning</h3>
+                <div class="before-after-container relative h-96">
+                    <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" alt="After leather reconditioning" class="w-full h-full object-cover">
+                    <div class="before-after-slider">
+                        <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80&blur=5&brightness=0.8" alt="Before leather reconditioning" class="w-full h-full object-cover">
+                        <div class="before-after-handle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-iron-black text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">What Our Clients Say</h2>
+            
+            <div class="testimonial-carousel flex overflow-x-auto pb-8 -mx-4 scrollbar-hide">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-slide flex-shrink-0 w-full md:w-1/2 px-4">
+                    <div class="bg-gray-900 p-8 rounded-lg h-full">
+                        <div class="flex items-center mb-4">
+                            <div class="text-iron-red text-2xl mr-2">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-lg mb-6">"Iron Car brought my AMG back to life. It looked better than when I bought it. The attention to detail was incredible - they even cleaned areas I didn't know existed! Highly recommend."</p>
+                        <div class="flex items-center">
+                            <div class="bg-iron-red rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                                <span class="text-white font-bold">J</span>
+                            </div>
+                            <div>
+                                <p class="font-bold">Josh</p>
+                                <p class="text-gray-400">Perth CBD</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-slide flex-shrink-0 w-full md:w-1/2 px-4">
+                    <div class="bg-gray-900 p-8 rounded-lg h-full">
+                        <div class="flex items-center mb-4">
+                            <div class="text-iron-red text-2xl mr-2">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-lg mb-6">"Professional, on time, and flawless results. I've used several detailers in Perth before, but none came close to the service I received from Iron Car. Book these guys!"</p>
+                        <div class="flex items-center">
+                            <div class="bg-iron-red rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                                <span class="text-white font-bold">N</span>
+                            </div>
+                            <div>
+                                <p class="font-bold">Natalie</p>
+                                <p class="text-gray-400">West Leederville</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-slide flex-shrink-0 w-full md:w-1/2 px-4">
+                    <div class="bg-gray-900 p-8 rounded-lg h-full">
+                        <div class="flex items-center mb-4">
+                            <div class="text-iron-red text-2xl mr-2">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-lg mb-6">"The ceramic coating has been worth every penny. Six months later and my car still beads water like it's fresh from the showroom. These guys know their stuff!"</p>
+                        <div class="flex items-center">
+                            <div class="bg-iron-red rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                                <span class="text-white font-bold">M</span>
+                            </div>
+                            <div>
+                                <p class="font-bold">Michael</p>
+                                <p class="text-gray-400">Subiaco</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <div class="inline-flex space-x-2">
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-700 hover:bg-iron-red transition" data-index="0"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-700 hover:bg-iron-red transition" data-index="1"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-700 hover:bg-iron-red transition" data-index="2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8">
+                <p class="text-xl font-bold text-gray-700">Trusted by Perth's Car Lovers</p>
+            </div>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+                <img src="https://via.placeholder.com/100x40?text=MERCEDES" alt="Mercedes" class="h-8 md:h-10 opacity-70 hover:opacity-100 transition">
+                <img src="https://via.placeholder.com/100x40?text=BMW" alt="BMW" class="h-8 md:h-10 opacity-70 hover:opacity-100 transition">
+                <img src="https://via.placeholder.com/100x40?text=AUDI" alt="Audi" class="h-8 md:h-10 opacity-70 hover:opacity-100 transition">
+                <img src="https://via.placeholder.com/100x40?text=TESLA" alt="Tesla" class="h-8 md:h-10 opacity-70 hover:opacity-100 transition">
+                <img src="https://via.placeholder.com/100x40?text=FORD" alt="Ford" class="h-8 md:h-10 opacity-70 hover:opacity-100 transition">
+            </div>
+            <div class="text-center mt-8">
+                <p class="text-lg font-bold text-gray-800">Trusted by 600+ Perth Drivers</p>
+                <p class="text-gray-600 mt-2">Fully Insured • 100% Satisfaction Guarantee</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Ready to Transform Your Car?</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6">Get Your Free Quote</h3>
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">Your Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-iron-red focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-iron-red focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label for="suburb" class="block text-gray-700 mb-2">Suburb</label>
+                            <input type="text" id="suburb" name="suburb" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-iron-red focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label for="car" class="block text-gray-700 mb-2">Car Make & Model</label>
+                            <input type="text" id="car" name="car" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-iron-red focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label for="service" class="block text-gray-700 mb-2">Preferred Service</label>
+                            <select id="service" name="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-iron-red focus:border-transparent" required>
+                                <option value="">Select a service</option>
+                                <option value="express">Express Detail ($149)</option>
+                                <option value="signature">Iron Signature Detail ($279)</option>
+                                <option value="ceramic">Ceramic Coating (From $799)</option>
+                                <option value="other">Other (Please specify below)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2">Additional Notes</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-iron-red focus:border-transparent"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-iron-red hover:bg-red-700 text-white font-bold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                            Get My Free Quote
+                        </button>
+                    </form>
+                </div>
+                
+                <div>
+                    <div class="bg-iron-black text-white p-8 rounded-lg shadow-lg h-full">
+                        <h3 class="text-2xl font-bold mb-6 text-iron-red">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="text-iron-red text-xl mr-4 mt-1">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Call Us</h4>
+                                    <a href="tel:+61800000000" class="hover:text-iron-red transition">08 0000 0000</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-iron-red text-xl mr-4 mt-1">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Email Us</h4>
+                                    <a href="mailto:info@ironcardetailing.com.au" class="hover:text-iron-red transition">info@ironcardetailing.com.au</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-iron-red text-xl mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Service Area</h4>
+                                    <p>Perth Metropolitan Area</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-iron-red text-xl mr-4 mt-1">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Operating Hours</h4>
+                                    <p>Monday - Friday: 7am - 6pm</p>
+                                    <p>Saturday: 8am - 4pm</p>
+                                    <p>Sunday: Closed</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                                    <i class="fab fa-google"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/61000000000" class="fixed bottom-8 right-8 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition transform hover:scale-110 z-50">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-iron-black text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <img src="https://via.placeholder.com/150x50?text=Iron+Car+Detailing" alt="Iron Car Detailing Logo" class="h-10">
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="mb-2">Proudly serving Perth since 2022</p>
+                    <div class="flex justify-center md:justify-end space-x-4">
+                        <a href="#" class="hover:text-iron-red transition">Terms</a>
+                        <a href="#" class="hover:text-iron-red transition">Privacy</a>
+                        <a href="#" class="hover:text-iron-red transition">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+                <p>&copy; 2023 Iron Car Detailing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Before/After slider functionality
+        document.querySelectorAll('.before-after-slider').forEach(slider => {
+            const container = slider.parentElement;
+            const handle = slider.querySelector('.before-after-handle');
+            const img = slider.querySelector('img');
+            
+            let isDragging = false;
+            
+            function moveSlider(e) {
+                if (!isDragging) return;
+                
+                let x;
+                if (e.type === 'mousemove') {
+                    x = e.pageX - container.getBoundingClientRect().left;
+                } else if (e.type === 'touchmove') {
+                    x = e.touches[0].pageX - container.getBoundingClientRect().left;
+                }
+                
+                const containerWidth = container.offsetWidth;
+                let percentage = (x / containerWidth) * 100;
+                
+                // Limit between 0 and 100
+                percentage = Math.max(0, Math.min(100, percentage));
+                
+                slider.style.width = percentage + '%';
+            }
+            
+            function stopDrag() {
+                isDragging = false;
+            }
+            
+            // Mouse events
+            slider.addEventListener('mousedown', () => isDragging = true);
+            document.addEventListener('mousemove', moveSlider);
+            document.addEventListener('mouseup', stopDrag);
+            
+            // Touch events
+            slider.addEventListener('touchstart', () => isDragging = true);
+            document.addEventListener('touchmove', moveSlider);
+            document.addEventListener('touchend', stopDrag);
+        });
+
+        // Testimonial carousel navigation
+        const carousel = document.querySelector('.testimonial-carousel');
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const dots = document.querySelectorAll('.testimonial-dot');
+        
+        dots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const index = this.getAttribute('data-index');
+                const slideWidth = slides[0].offsetWidth + 32; // Include margin
+                
+                carousel.scrollTo({
+                    left: index * slideWidth,
+                    behavior: 'smooth'
+                });
+                
+                // Update active dot
+                dots.forEach(d => d.classList.remove('bg-iron-red'));
+                this.classList.add('bg-iron-red');
+            });
+        });
+        
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your inquiry! We will contact you shortly.');
+            this.reset();
+        });
+
+        // Scroll to sections smoothly
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=Wajeeh12/iron-car-detailing" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
